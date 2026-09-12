@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bit | Creating Experiences with Visual & Sound</title>
+<meta name="description" content="bitはイベント映像・音響システムの設営・オペレーション、映像制作・撮影を行うテクニカルサービスです。">
+<style>
+:root{
+  --bg:#0b0d10;
+  --panel:#12161b;
+  --text:#f4f6f8;
+  --muted:#9aa4af;
+  --line:#283039;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  line-height:1.8;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+.wrap{
+  width:min(1120px,calc(100% - 48px));
+  margin-inline:auto;
+}
+
+/* Header */
+header{
+  position:fixed;
+  inset:0 0 auto;
+  z-index:10;
+  background:rgba(11,13,16,.84);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.nav{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.logo{
+  display:inline-flex;
+  align-items:center;
+  flex:none;
+}
+.logo img{
+  display:block;
+  width:150px;
+  height:auto;
+  max-height:48px;
+  object-fit:contain;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:clamp(18px,3vw,32px);
+  font-size:13px;
+  color:var(--muted);
+}
+nav a{
+  padding:12px 0;
+  white-space:nowrap;
+}
+nav a:hover{color:#fff}
+
+/* Hero */
+.hero{
+  min-height:88vh;
+  display:flex;
+  align-items:center;
+  padding:150px 0 90px;
+  border-bottom:1px solid var(--line);
+}
+.kicker{
+  font-size:12px;
+  letter-spacing:.2em;
+  color:var(--muted);
+  text-transform:uppercase;
+}
+.hero h1{
+  font-size:clamp(46px,8vw,94px);
+  line-height:.98;
+  letter-spacing:-.055em;
+  margin:18px 0 30px;
+  max-width:900px;
+}
+.hero p{
+  font-size:clamp(15px,1.7vw,17px);
+  color:var(--muted);
+  max-width:770px;
+}
+
+/* Service cards */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1px;
+  background:var(--line);
+  margin-top:65px;
+}
+.card{
+  background:var(--bg);
+  padding:34px 30px;
+  min-height:210px;
+}
+.num{font-size:12px;color:var(--muted)}
+.card h3{font-size:21px;margin:22px 0 12px}
+.card p{font-size:14px;color:var(--muted);margin:0}
+
+/* Sections */
+section{
+  padding:clamp(72px,10vw,110px) 0;
+  border-bottom:1px solid var(--line);
+}
+.section-head{
+  display:grid;
+  grid-template-columns:minmax(180px,.7fr) minmax(0,1fr);
+  gap:40px;
+  margin-bottom:50px;
+}
+.section-head h2{
+  font-size:clamp(34px,4vw,42px);
+  letter-spacing:-.04em;
+  margin:0;
+}
+.section-head p{
+  max-width:550px;
+  color:var(--muted);
+  margin:0;
+}
+
+/* About */
+.work{
+  display:grid;
+  grid-template-columns:minmax(0,1.3fr) minmax(280px,1fr);
+  gap:clamp(30px,5vw,50px);
+  align-items:center;
+}
+.visual{
+  aspect-ratio:16/10;
+  background:linear-gradient(135deg,#171c22,#090b0e);
+  border:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.visual img{
+  font-size:clamp(72px,12vw,110px);
+  font-weight:900;
+  letter-spacing:-.1em;
+}
+.work h3{font-size:clamp(25px,3vw,30px);margin:0 0 20px}
+.work p{color:var(--muted)}
+
+
+/* Footer */
+footer{
+  padding:35px 0;
+  color:var(--muted);
+  font-size:12px;
+}
+footer .wrap{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.hero-image{
+  margin-top:55px;
+  border:1px solid var(--line);
+  overflow:hidden;
+  background:#080a0d;
+}
+.hero-image img{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  object-position:center;
+  filter:saturate(.9);
+}
+
+/* Tablet */
+@media (max-width:900px){
+  .wrap{width:min(100% - 40px,1120px)}
+  .hero{min-height:auto;padding-top:145px}
+  .grid{grid-template-columns:1fr}
+  .card{min-height:auto}
+  .section-head{grid-template-columns:1fr;gap:16px}
+}
+
+/* Mobile */
+@media (max-width:640px){
+  .wrap{width:calc(100% - 28px)}
+  .nav{min-height:64px}
+  .logo img{width:82px;max-height:42px}
+  nav{gap:15px;font-size:11px}
+  nav a{padding:10px 0}
+
+  .hero{
+    padding:118px 0 60px;
+  }
+  .hero h1{
+    font-size:clamp(43px,13vw,64px);
+    line-height:1;
+    margin:16px 0 24px;
+  }
+  .hero p{font-size:15px}
+  .hero-image{margin-top:35px}
+  .grid{margin-top:45px}
+  .card{padding:28px 22px}
+  .card h3{margin-top:16px}
+
+  section{padding:70px 0}
+  .section-head{margin-bottom:34px}
+  .section-head h2{font-size:34px}
+
+  .work{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  .visual{aspect-ratio:16/10}
+  .work h3{font-size:26px}
+
+  
+  footer .wrap{
+    flex-direction:column;
+    gap:8px;
+  }
+}
+
+/* Very small phones */
+@media (max-width:390px){
+  .wrap{width:calc(100% - 24px)}
+  nav{gap:10px}
+  nav a{font-size:10px}
+  .hero h1{font-size:42px}
+  .contact h2{font-size:40px}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="logo" href="#" aria-label="bit"><img src="bit-logo.jpg" alt="bit"></a><nav><a href="#service">SERVICE</a><a href="#about">ABOUT</a></nav></div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+<div class="kicker">Technical Direction / Operation / Video Production</div>
+<h1>Creating Experiences<br>with Visual &amp; Sound.</h1>
+<p>イベントの現場を、映像と音で支える。<br>システム設計・設営からオペレーション、撮影・映像制作まで、現場に合わせた技術で対応します。</p>
+<div class="hero-image">
+<img src="foh-stage.jpg" alt="">
+</div>
+<div class="grid" id="service">
+<div class="card"><div class="num">01 / SYSTEM</div><h3>Event AV System</h3><p>映像・音響機器のシステム構築、設営、調整、オペレーション。</p></div>
+<div class="card"><div class="num">02 / OPERATION</div><h3>Technical Operation</h3><p>イベント当日の進行に合わせた映像・音響オペレーション。</p></div>
+<div class="card"><div class="num">03 / VIDEO</div><h3>Video Production</h3><p>撮影から編集まで。記録・配信・イベント用映像を制作します。</p></div>
+</div>
+</div></section>
+
+<section id="about"><div class="wrap">
+<div class="section-head"><h2>ABOUT bit</h2><p>bitは、デジタル情報の最小単位を表す言葉です。<br>映像や音も、一つひとつの情報や技術が組み合わさることで、ひとつの体験を生み出します。<br>目に見える映像、耳に届く音、その瞬間の判断。<br>一つひとつの要素を丁寧に積み重ね、記憶に残る空間をつくっていきます。</p></div>
+<div class="work"><div class="visual"><img src="bit-logo_2.jpg" alt=""></div><div><h3>Technical Director / Operator</h3><p>現場経験をベースに、機材選定からシステム構築、当日のオペレーションまで一貫して対応します。</p><p>イベントごとに異なる目的や条件を理解し、最適なシステム構築と運用を考えることを大切にしています。</p></div></div>
+</div></section>
+
+
+</main>
+<footer><div class="wrap" style="display:flex;justify-content:space-between;width:100%"><span>© 2026 bit. All Rights Reserved.</span><span>Creating Experiences with Visual &amp; Sound.</span></div></footer>
+</body></html>
